@@ -2,7 +2,7 @@ import streamlit as st
 import requests
 import pandas as pd
 
-API_URL = "http://backend:8001"
+API_URL = "http://backend:8000"
 
 st.set_page_config(page_title="Records App", page_icon="📊")
 st.title("📊 Score Records")
