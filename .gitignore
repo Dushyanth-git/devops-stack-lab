@@ -1,0 +1,5 @@
+prac/
+__pycache__
+*.pyc
+data.xlsx
+.env
