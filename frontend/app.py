@@ -7,7 +7,7 @@ API_URL = "http://backend:8000"
 st.set_page_config(page_title="Records App", page_icon="📊")
 st.title("📊 Score Records")
 
-st.subheader("➕ Add New Record(name and score)")
+st.subheader("➕ Add New Record")
 
 name = st.text_input("Name")
 score = st.number_input("Score", min_value=0, max_value=100, step=1)
