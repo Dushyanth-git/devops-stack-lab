@@ -3,7 +3,7 @@ pipeline{
     stages{
         stage('git checkout'){
             steps{
-                git 'https://github.com/Dushyanth-git/devops-practice-app.git'
+                git branch: 'main', url: 'https://github.com/Dushyanth-git/devops-practice-app.git'
             }
         }
         stage('build and compose up'){
