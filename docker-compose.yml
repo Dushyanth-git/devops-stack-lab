@@ -4,8 +4,6 @@ services:
         build: ./backend
         ports:
             - "8000:8000"
-        volumes:
-            - ./backend/data.xlsx:/app/data.xlsx
     frontend:
         build: ./frontend
         ports:
