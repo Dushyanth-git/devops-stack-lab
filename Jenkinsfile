@@ -17,7 +17,7 @@ pipeline {
                 script{
                     env.SHORT_COMMIT = sh(
                         script: "git rev-parse --short HEAD"
-                        return stdout:true
+                        returnStdout: true
                     ).trim()
                 }
             }
