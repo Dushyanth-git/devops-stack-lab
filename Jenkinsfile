@@ -16,7 +16,7 @@ pipeline {
                 checkout scm  
                 script{
                     env.SHORT_COMMIT = sh(
-                        script: "git rev-parse --short HEAD"
+                        script: "git rev-parse --short HEAD",
                         returnStdout: true
                     ).trim()
                 }
