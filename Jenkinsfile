@@ -37,25 +37,17 @@ pipeline {
 
             }
         }
-        stage('pushing images to dockerhub '){
+        stage('pushing images to dockerhub'){
             steps{
-                script{
-                    withCredentials([usernamePassword(
-                        credentialsId: 'dockerhub-creds',
-                        usernameVariable: 'DOCKER_USER',
-                        passwordVariable: 'DOCKER_PASS'
-
-                )]) {
-                    sh """
-                        echo $DOCKER_PASS | docker login -u $DOCKER_USER --password-stdin
-                        docker push $BACKEND_IMAGE:$SHORT_COMMIT
-                        docker push $FRONTEND_IMAGE:$SHORT_COMMIT
-                        docker logout
-                    """
-                }
-                }
-            }
+                withCredentials([usernamePassword(
+                    credentialsId: 'dockerhub-creds',
+                    usernameVariable: 'DOCKER_USER',
+                    passwordVariable: 'DOCKER_PASS'
+        )]) {
+            sh 'echo "CREDENTIAL TEST SUCCESS"'
         }
+    }
+}
         stage('deploy-ec2-server'){
             steps{
                 sshagent(['deploy-server-key']){
