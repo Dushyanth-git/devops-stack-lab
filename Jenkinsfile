@@ -7,17 +7,22 @@ pipeline {
         DOCKERHUB_USERNAME = "dushyanth00"
         BACKEND_IMAGE = "${DOCKERHUB_USERNAME}/backend" 
         FRONTEND_IMAGE = "${DOCKERHUB_USERNAME}/frontend" 
-        DEPLOY_HOST = ""
+        DEPLOY_HOST = "3.24.123.69"
         DEPLOY_PATH = "/home/ubuntu/app"
     }
     stages {
         stage('checkout'){
             steps{
-                checkout scm 
+                checkout scm  
+                script{
+                    env.SHORT_COMMIT = sh(
+                        script: "git rev-parse --short HEAD"
+                        return stdout:true
+                    ).trim()
+                }
             }
         }
         stage('build backend image'){
-            SHORT_COMMIT = "${env.GIT_COMMIT[0..6]}"
             steps{
                 sh """
                         docker build -t $BACKEND_IMAGE:$SHORT_COMMIT ./backend
