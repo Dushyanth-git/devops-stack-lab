@@ -39,17 +39,20 @@ pipeline {
         }
         stage('pushing images to dockerhub '){
             steps{
-                withCredentials([usernamePassword(
-                    credentialsId: 'dockerhub-creds',
-                    usernameVariable: 'DOCKER_USER',
-                    passwordVariable: 'DOCKER_PASS'
-                )]){
+                script{
+                    withCredentials([usernamePassword(
+                        credentialsId: 'dockerhub-creds',
+                        usernameVariable: 'DOCKER_USER',
+                        passwordVariable: 'DOCKER_PASS'
+
+                )]) {
                     sh """
                         echo $DOCKER_PASS | docker login -u $DOCKER_USER --password-stdin
                         docker push $BACKEND_IMAGE:$SHORT_COMMIT
                         docker push $FRONTEND_IMAGE:$SHORT_COMMIT
                         docker logout
                     """
+                }
                 }
             }
         }
