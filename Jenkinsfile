@@ -7,7 +7,7 @@ pipeline {
         DOCKERHUB_USERNAME = "dushyanth00"
         BACKEND_IMAGE = "${DOCKERHUB_USERNAME}/backend" 
         FRONTEND_IMAGE = "${DOCKERHUB_USERNAME}/frontend" 
-        DEPLOY_HOST = "3.107.72.249"
+        DEPLOY_HOST = "3.104.164.208"
         DEPLOY_PATH = "/home/ubuntu/app"
     }
     stages {
