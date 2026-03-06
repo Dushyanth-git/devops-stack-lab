@@ -1,7 +1,7 @@
 version: '3.8'
 services:
     backend:
-        image: dusyanth00/backend:${IMAGE_TAG}
+        image: dushyanth00/backend:${IMAGE_TAG}
         ports:
             - "8000:8000"
     frontend:
