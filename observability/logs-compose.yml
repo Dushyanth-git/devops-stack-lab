@@ -1,3 +1,4 @@
+# this file is a docker compose file,it should be planted in the ec2 where deployment happens, for setting up loki, promtail and grafana for log aggregation and visualization. It defines three services: loki for log storage, promtail for log collection, and grafana for log visualization. Each service is configured with the necessary image, ports, and dependencies to ensure proper communication between them.
 version: '3.8'
 services:
     loki:
