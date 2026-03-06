@@ -14,7 +14,7 @@ This project is designed as a practical DevOps learning sandbox where you can:
 
 - **Backend** (`app/backend`): FastAPI service that stores score records in an Excel file.
 - **Frontend** (`app/frontend`): Streamlit UI for adding and viewing records.
-- **CI/CD** (`Jenkinsfile`): Builds images, pushes to Docker Hub, then deploys to EC2 over SSH.
+- **CI/CD** (`Jenkinsfile`): Builds images in one Ec2, pushes to Docker Hub, then deploys to another EC2 over SSH.
 - **Runtime deployment** (`infra/docker/docker-compose.yml`): Pulls and runs tagged backend/frontend images.
 - **Observability** (`observability/logs-compose.yml`): Loki + Promtail + Grafana stack.
 
@@ -24,17 +24,6 @@ This project is designed as a practical DevOps learning sandbox where you can:
 - Persistent storage using `data.xlsx` in the backend container context.
 - Image tagging by Git commit SHA for traceable deployments.
 - Lightweight observability stack ready for log aggregation.
-
-## Suggested repository rename
-
-If you want a clearer, portfolio-friendly repo name, use:
-
-**`score-records-devops-platform`**
-
-Alternative names:
-- `fastapi-streamlit-devops-demo`
-- `records-app-cicd-observability`
-- `dockerized-scoreboard-pipeline`
 
 ## Quick start (local)
 
