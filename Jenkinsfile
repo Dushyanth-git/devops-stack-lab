@@ -25,14 +25,14 @@ pipeline {
         stage('build backend image'){
             steps{
                 sh """
-                        docker build -t $BACKEND_IMAGE:$SHORT_COMMIT ./backend
+                        docker build -t $BACKEND_IMAGE:$SHORT_COMMIT ./app/backend
                     """
             }
         }
         stage('build frontend image'){
             steps{
                 sh """
-                        docker build -t $FRONTEND_IMAGE:$SHORT_COMMIT ./frontend 
+                        docker build -t $FRONTEND_IMAGE:$SHORT_COMMIT ./app/frontend 
                     """
 
             }
