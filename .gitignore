@@ -2,4 +2,3 @@ prac/
 __pycache__
 *.pyc
 .env
-logs-compose.yml
